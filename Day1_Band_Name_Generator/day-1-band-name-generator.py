@@ -3,10 +3,22 @@
 # Description: This program is the 1st challenge in the 100 Days of Code: Python that 
 # generates a band name using input from the user and prints it to the screen
 
+def greeting():
+    """Welcomes User to Band Name Generator
 
+    Args:
+      NONE
+    
+    Returns:
+      Welcome message
+    
+    Raises:
+      NONE
+    """
+    return print("Welcome to the band name generator!\n")
 
-def request_name():
-    """Requests users name as input.
+def request_pet_name():
+    """Requests users pet name as input.
     
     Args: 
       NONE
@@ -19,23 +31,31 @@ def request_name():
     """
     while True:
       try:
-        if (name := input("Enter your first name: ")).isalpha():
+        if (pet_name := input("Enter your pet's name: \n")).isalpha():
             break
         else:
-          print("Must be characters, please enter your name again.")
+          print("Must be characters, please enter your pet's name again.")
       except ValueError:
         print("Provide name with only characters.")
         continue
-    return name
+    return pet_name
 
 
 def request_city_name():
     """Function requests the city the user lives in and assigns the result.
 
+    Args:
+      NONE
+
+    Returns:
+      city: User's city
+
+    Raises: 
+      ValueError: If User's input is not character. 
     """
     while True:
       try:
-        if (city := input("Enter the city name where you live: ")).isalpha():
+        if (city := input("\nEnter the city name where you live: \n")).isalpha():
             break
       except ValueError:
         print("Provide name with only characters.")
@@ -43,21 +63,24 @@ def request_city_name():
     return city
 
 # genearate_band_name
-def generate_band_name(input1, input2):
+def generate_band_name(name, city):
     """Generates band name given users input for name and city.
     
     Args:
-      input1:
-      input2:
+      name: User's name
+      city: User's city
 
     Returns:
+      Band name generated via User's name and city
 
     Raises:
+      NONE
     """
-    return print("Your band name is: {} {}".format(input1, input2))
+    return print("\nYour band name is: {} {}\n\nThank you for your participation!\n".format(city, pet_name))
 
 
 if __name__ == "__main__":
-    name = request_name()
-    street = request_city_name()
-    generate_band_name(name, street)
+    greeting()
+    pet_name = request_pet_name()
+    city = request_city_name()
+    generate_band_name(pet_name, city)
