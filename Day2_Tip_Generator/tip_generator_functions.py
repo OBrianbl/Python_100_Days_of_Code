@@ -14,15 +14,15 @@ def end_program():
 
 def get_bill():
     """Gets total bill from user."""
-    return input("\nPlease enter the total bill amount: \n")
+    return float(input("\nPlease enter the total bill amount: \n"))
 
 def get_tip_percent():
     """Gets desired tip percentage from user."""
-    return input("\nPlease enter the desired tip percentage: \n")
+    return float(input("\nPlease enter the desired tip percentage (without percentage sign): \n"))
 
 def get_number_of_people():
     """Gets number of people to split total bill between"""
-    return input("\nPlease enter the number of people to split the bill: \n")
+    return int(input("\nPlease enter the number of people to split the bill: \n"))
 
 
 def calc_tip_amount(bill, tip_percent):
@@ -36,7 +36,7 @@ def calc_tip_amount(bill, tip_percent):
       The calculated tip amount.
 
     """
-    return bill * tip_percent
+    return bill * (tip_percent / 100)
 
 def calc_total_bill(tip, bill):
     """Calculates the total bill which includes tip
